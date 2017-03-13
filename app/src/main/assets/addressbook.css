@@ -514,3 +514,206 @@ body {
         padding: 0px;
     }
 }
+
+/** Target WebView
+ *  Remove factor 3 scaling
+ */
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 3) {
+
+    #bar, .menu, .menu ul, .menu li, .menu div, #new_fields_button, #submit_button {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-touch-callout:none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    body {
+        position: relative;
+        width: 100%;
+    }
+
+    .menu {
+        box-shadow: 1px 1px 10px 5px #eaeaea;
+        user-select: none;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .menu ul {
+        background-color: #fefefe;
+        position: relative;
+        height: 25px;
+        padding: 25px;
+        padding-top: 10px;
+        padding-bottom: 45px;
+    }
+
+    .menu li {
+        background-color: #fefefe;
+        position: relative;
+        height: 80px;
+    }
+
+    .menu div {
+        background-color: #fefefe;
+        position: relative;
+        text-align: center;
+        line-height: 25px;
+        font-size: 12px;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    .menu div:active {
+        background-color: #f8f8f8;
+    }
+
+    #bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0;
+        margin-top: 67px;
+        padding: 0;
+        height: 2.5px;
+        width: 100%;
+        z-index: 11;
+
+    }
+
+    #spinner {
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .inputform h1 {
+        font-size: 25px;
+        margin-top: 50px;
+        padding-bottom: 35px;
+    }
+
+    h1 + p.inputfield {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 20px;
+    }
+
+    .inputfield {
+        position: relative;
+        font-size: 15px;
+        width: 75%;
+    }
+
+    #ID_selector {
+        position: absolute;
+        top: 15px;
+        right: 0;
+        width: 100%;
+        font-size: 18px;
+        color: #444444;
+        padding-bottom: 15px;
+        padding-right: 5px;
+        border-bottom-width: 2.5px;
+        z-index: 5;
+    }
+
+    #ID_selector:hover {
+        border-bottom-width: 1.5px;
+    }
+
+    .inputform > div {
+        font-size: 15px;
+        color: #777777;
+        width: 75%;
+        margin: 45px auto;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+
+    .inputfield {
+        position: relative;
+        margin-top: 25px;
+    }
+
+    p.inputfield {
+        line-height: 30px;
+        padding-left: 10px;
+    }
+
+    div.inputfield {
+        width: 75%;
+        margin-bottom: 100px;
+    }
+
+    .inputfield > input {
+        position: absolute;
+        float: none;
+        right: 0;
+        top: 0;
+        height: 30px;
+        width: 80%;
+        font-size: 12.5px;
+        text-align: right;
+    }
+
+    #new_fields_button {
+        margin-top: 15px;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 15px;
+        line-height: 17px;
+        padding-top: 12.5px;
+    }
+
+    .inputform #submit_button {
+        width: 85%;
+        height: 45px;
+        line-height: 45px;
+        margin-top: 0px;
+    }
+
+    .inputform #submit_button:active {
+        width: 83%;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .WarningResponse {
+        border-radius: 65px;
+        height: 100px;
+    }
+
+    .WarningResponse > div {
+        font-weight: thin;
+        font-size: 17px;
+        margin-top: 23px;
+        margin-left: 32.5px;
+        line-height: 120%;
+        overflow: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .results ul {
+        height: 60px;
+        line-height: 20px;
+    }
+
+    .results .th {
+        height: 60px;
+    }
+
+    .results li {
+        height: 60px;
+    }
+
+    .results div {
+        height: 60px;
+        font-size: 20px;
+        line-height: 60px;
+        padding: 0px;
+    }
+}
