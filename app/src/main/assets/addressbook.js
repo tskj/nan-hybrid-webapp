@@ -281,7 +281,6 @@ function interruptibleStatusFadeOut(f, status) {
         if (nrOfStatusAbortions[status] < 2) {
             if (_fadeOutWasAborted) {
                 $(status).style.opacity = 1;
-                $(status).style.filter = 'blur(0px)';
                 nrOfStatusAbortions[status]++;
                 if (nrOfStatusAbortions[status] < 2) {
                     f(5000);
@@ -312,7 +311,6 @@ function interruptibleStatusFadeOut(f, status) {
         o++;
         o *= 10;
 
-        $(status).style.filter = 'blur(' + o + 'px)';
 
         return false;
     }
@@ -327,7 +325,6 @@ function displayMessage(str, color, permanent) {
 
     insertAfter(createStatusMessage(str, color), $('app').firstElementChild);
     expDecayAnimate(function(x) {$(status).style.opacity = x; return false;}, 0.0, 1.0, 4);
-    expDecayAnimate(function(x) {$(status).style.filter = 'blur(' + x + 'px)'; return false;}, 10.0, 0.0, 8);
     var startFadeOutTimer = function(time) {
         setTimeout( function() {
             if (_fadeOutWasAborted) {
