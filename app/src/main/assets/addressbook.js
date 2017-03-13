@@ -659,22 +659,8 @@ function initializeState() {
     setState('get_pane');
 }
 
-createSpinnerOn(document.getElementsByTagName('body')[0], '25%');
 window.addEventListener('load', initializeState, false);
 window.addEventListener('load', function()  {
-    setTimeout( function() {
-        expDecayAnimate(function(x) {
-            $('app').style.marginTop = x;
-            return false;
-        }, -1000, 0, 10);
-        _cancelSpinner = true;
-        if ($('spinner')) {
-            sigmoidAnimate(function(x) {
-                $('spinner').style.opacity = x;
-                return false;
-            }, 1, 0, 1, function() {$('spinner').remove()});
-        }
-    }, 2500);
 
     $('submit_button').style.opacity = 1;
     $('submit_button').addEventListener('click', sendRequest, false);
