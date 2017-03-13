@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Addressbook API interface</title>
+	    <meta charset="utf8"/>
+        <link href="addressbook.css" rel="stylesheet" type="text/css"/>
+        <link href="img/spinner.gif" rel="preload" type="image/gif"/>
+    </head>
+    <body>
+        <div id="app" style="margin-top: -1900px">
+            <div class="dropshadow">
+                <div class="menu">
+                    <ul>
+                        <li id="get_pane"><div>Søk</div></li>
+                        <li id="post_pane"><div>Sett inn</div></li>
+                        <li id="put_pane"><div>Oppdater</div></li>
+                        <li id="delete_pane"><div>Slett</div></li>
+                    </ul>
+                </div>
+                <form class="inputform">
+
+                    <h1>Addressbook API Web-Interface</h1>
+
+                    <p class="inputfield">Velg ID<input type="text" id="ID_selector"/></p><br>
+
+                    <div><b>Fyll inn informasjon i felta under<b></div>
+
+                    <p class="inputfield">ID<input      type="text"/></p>
+                    <p class="inputfield">Namn<input    type="text"/></p>
+                    <p class="inputfield">Telefon<input type="text"/></p>
+
+                    <div class="inputfield"><div id="new_fields_button">Legg til</div></div>
+
+                    <div id="submit_button">Go!</div>
+                </form>
+            </div>
+        </div>
+        <script src="addressbook.js"></script>
+    </body>
+</html>
