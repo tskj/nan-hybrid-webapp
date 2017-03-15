@@ -589,6 +589,10 @@ body {
         height: 30vw;
     }
 
+    .inputform {
+        margin-bottom: 0px;
+    }
+
     .inputform h1 {
         font-size: 25px;
         margin-top: 50px;
@@ -645,7 +649,7 @@ body {
 
     div.inputfield {
         width: 75%;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
 
     .inputfield > input {
@@ -660,7 +664,8 @@ body {
     }
 
     #new_fields_button {
-        margin-top: 15px;
+        margin-top: 10px;
+        margin-right: 0px;
         width: 100px;
         height: 30px;
         text-align: center;
@@ -674,6 +679,7 @@ body {
         height: 45px;
         line-height: 45px;
         margin-top: 0px;
+        margin-bottom: 35px;
     }
 
     .inputform #submit_button:active {
