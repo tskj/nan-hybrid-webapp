@@ -318,6 +318,9 @@ function interruptibleStatusFadeOut(f, status) {
 
 function displayMessage(str, color, permanent) {
 
+    Android.toastMessage(str);
+    return;
+
     permanent = (typeof permanent !== 'undefined') ? permanent : false;
 
     var status = 'status' + nrOfStatuses;

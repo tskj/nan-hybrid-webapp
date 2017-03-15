@@ -15,6 +15,7 @@ public class Addressbook extends Activity {
 
         view.getSettings().setJavaScriptEnabled(true);
         view.getSettings().setBuiltInZoomControls(false);
+        view.addJavascriptInterface(new WebAppInterface(this), "Android");
         view.loadUrl("file:///android_asset/index.html");
     }
 }
