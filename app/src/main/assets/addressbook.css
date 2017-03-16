@@ -668,8 +668,6 @@ body {
     .inputfield > input {
         right: 0;
         top: 0;
-        height: 30px;
-        width: 100%;
         font-size: 12.5px;
         text-align: right;
         padding-right: 10px;
