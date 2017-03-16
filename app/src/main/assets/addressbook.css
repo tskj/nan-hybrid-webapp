@@ -613,19 +613,19 @@ body {
 
     #ID_selector {
         position: absolute;
-        top: 15px;
+        top: 5px;
         right: 0;
         width: 100%;
         font-size: 18px;
         color: #444444;
         padding-bottom: 15px;
         padding-right: 5px;
-        border-bottom-width: 2.5px;
+        border-bottom-width: 1.5px;
         z-index: 5;
     }
 
     #ID_selector:hover {
-        border-bottom-width: 1.5px;
+        border-bottom-width: 2.5px;
     }
 
     .inputform > div {
@@ -637,41 +637,56 @@ body {
         padding-bottom: 0px;
     }
 
+    .inputform > div:not(.inputfield) {
+        height: 20px;
+    }
+
     .inputfield {
         position: relative;
         margin-top: 25px;
     }
 
-    p.inputfield {
+    label.inputfield {
+        position: relative;
         line-height: 30px;
         padding-left: 10px;
+        margin-bottom: 0px;
+        display: block;
+        z-index: 2;
+    }
+
+    label.inputfield > p {
+        position: relative;
+        color: #aaaaaa;
+        z-index: 2;
+    }
+
+    .inputfield > input {
+        right: 0;
+        top: 0;
+        height: 30px;
+        width: 100%;
+        font-size: 12.5px;
+        text-align: right;
+        display: inline;
+        z-index: 1;
     }
 
     div.inputfield {
         width: 75%;
+        margin-top: 10px;
         margin-bottom: 50px;
-    }
-
-    .inputfield > input {
-        position: absolute;
-        float: none;
-        right: 0;
-        top: 0;
-        height: 30px;
-        width: 80%;
-        font-size: 12.5px;
-        text-align: right;
     }
 
     #new_fields_button {
         margin-top: 10px;
         margin-right: 0px;
-        width: 100px;
+        width: 80px;
         height: 30px;
         text-align: center;
         font-size: 15px;
-        line-height: 17px;
-        padding-top: 12.5px;
+        line-height: 30px;
+        padding-top: 0px;
     }
 
     .inputform #submit_button {
@@ -680,6 +695,7 @@ body {
         line-height: 45px;
         margin-top: 0px;
         margin-bottom: 35px;
+        font-weight: 400;
     }
 
     .inputform #submit_button:active {

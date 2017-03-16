@@ -89,7 +89,7 @@ function setPutState() {
 
 function enableForm(form, enabled) {
     form.forEach( function(field) {
-        field.children[0].disabled = !enabled;
+        field.children[1].disabled = !enabled;
     });
 }
 
@@ -651,7 +651,7 @@ function initializeState() {
     var existingInputFields = document.getElementsByClassName('inputfield');
     var inputForm = [];
     for (var i = 0, n; n = existingInputFields[i]; i++) {
-        if (n.firstElementChild.id === '' && n.tagName === 'P') inputForm.push(n);
+        if (n.tagName === 'LABEL') inputForm.push(n);
     }
 
     inputFields.push(inputForm);
