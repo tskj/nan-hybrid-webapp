@@ -617,7 +617,11 @@ body {
 
     #ID_selector {
         position: absolute;
+<<<<<<< HEAD
         top: 20px;
+=======
+        top: 5px;
+>>>>>>> 4195a0dc1fcf8acef4fd6576338a539d6098221c
         right: 0;
         width: 100%;
         font-size: 18px;
