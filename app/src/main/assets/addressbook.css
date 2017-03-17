@@ -743,4 +743,12 @@ body {
         line-height: 60px;
         padding: 0px;
     }
+
+    .results > .tr_odd_mobile div {
+        background-color: #fafaff;
+    }
+
+    .results > .tr_even_mobile {
+        background-color: #f2f2fa;
+    }
 }

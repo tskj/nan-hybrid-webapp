@@ -470,7 +470,8 @@ function handleResponse(req, reqVerb, _id) {
 
                 document.body.style.marginBottom = '200px';
 
-                var xml = (new DOMParser()).parseFromString(req.responseText, 'application/xml');
+                var xml      = (new DOMParser()).parseFromString(req.responseText, 'application/xml');
+                var contacts = (new DOMParser()).parseFromString(Android.listAllContacts(), 'application/xml');
 
                 var results = document.createElement('div');
                 results.className = 'rowShadow results';
@@ -478,11 +479,14 @@ function handleResponse(req, reqVerb, _id) {
                 results.id = resultsID
                 nrOfResults++;
 
-                var listDiv = function(name, grey) {
+                var listDiv = function(name, grey, lineBreakable) {
                     var div = document.createElement('div');
                     div.textContent = name
                     if (grey) {
                         div.className = 'greyed_out';
+                    }
+                    if (lineBreakable) {
+                        div.style.whiteSpace = 'pre-line';
                     }
                     var li = document.createElement('li');
                     li.appendChild(div);
@@ -504,26 +508,51 @@ function handleResponse(req, reqVerb, _id) {
                 var names = xml.getElementsByTagName('name');
                 var tlfs = xml.getElementsByTagName('tlf');
 
-                for (var i = 0; i < names.length; i++) {
+                var cIds = contacts.getElementsByClassName('id');
+                var cNames = contacts.getElementsByTagName('name');
+                var cTlfs = contacts.getElementsByTagName('tlf');
+
+                for (var i = 0, j = 0; i < names.length && j < cNames.length; /*Empty*/) {
 
                     var contactList = document.createElement('ul');
-                    contactList.className = (oddRow) ? 'tr_odd' : 'tr_even';
 
-                    var id = ids[i].firstChild;
+                    var phoneContact;
+
+                    if (i === names.length || j !== cNames.length && cIds[j] < ids[i]) {
+                        phoneContact = true;
+                        var ids_ = cIds;
+                        var names_ = cNames;
+                        var tlfs_ = cTlfs;
+                        var k = j;
+                        j++;
+                    } else {
+                        phoneContact = false;
+                        var ids_ = Ids;
+                        var names_ = Names;
+                        var tlfs_ = Tlfs;
+                        var k = i;
+                        i++;
+                    }
+
+                    var className = (oddRow) ? 'tr_odd' : 'tr_even';
+                    className += (phoneContact) ? '_mobile' : '';
+                    contactList.className = className;
+
+                    var id = ids_[k].firstChild;
                     var id_grey = (id) ? false : true;
                     id = (id) ? id.textContent : '<null>';
 
-                    var name = names[i].firstChild;
+                    var name = names_[k].firstChild;
                     var name_grey = (name) ? false : true;
                     name = (name) ? name.textContent : '<null>';
 
-                    var tlf = tlfs[i].firstChild;
+                    var tlf = tlfs_[k].firstChild;
                     var tlf_grey = (tlf) ? false : true;
                     tlf = (tlf) ? tlf.textContent : '<null>';
 
-                    contactList.appendChild(listDiv(id, id_grey));
-                    contactList.appendChild(listDiv(name, name_grey));
-                    contactList.appendChild(listDiv(tlf, tlf_grey));
+                    contactList.appendChild(listDiv(id, id_grey, false));
+                    contactList.appendChild(listDiv(name, name_grey, false));
+                    contactList.appendChild(listDiv(tlf, tlf_grey, phoneContact));
 
                     results.appendChild(contactList);
 
