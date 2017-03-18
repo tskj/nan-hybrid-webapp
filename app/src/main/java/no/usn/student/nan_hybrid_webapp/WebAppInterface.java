@@ -22,7 +22,7 @@ public class WebAppInterface {
     public String listAllContacts() {
         String xml = "<contacts>";
 
-        Cursor k = getContentResolver().query(Cotnacts.CONTENT_URI, null, null, null, Contacts._ID);
+        Cursor k = _context.getContentResolver().query(Contacts.CONTENT_URI, null, null, null, Contacts._ID);
         if (k.getCount() > 0) {
             while (k.moveToNext()) {
                 if (!k.getString(k.getColumnIndex(Contacts.HAS_PHONE_NUMBER)).equals("1")) {
@@ -47,7 +47,7 @@ public class WebAppInterface {
     public String getPhoneNumbers(String id) {
         String tlfs = "";
 
-        Cursor p = getContentResolver().query(Phone.CONTENT_URI, null, Phone.CONTACT_ID + " = " + id, null, null);
+        Cursor p = _context.getContentResolver().query(Phone.CONTENT_URI, null, Phone.CONTACT_ID + " = " + id, null, null);
         while (p.moveToNext()) {
             tlfs += p.getString(p.getColumnIndex(Phone.NUMBER)) + "\r\n";
         }
