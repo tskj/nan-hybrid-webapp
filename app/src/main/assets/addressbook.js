@@ -508,17 +508,17 @@ function handleResponse(req, reqVerb, _id) {
                 var names = xml.getElementsByTagName('name');
                 var tlfs = xml.getElementsByTagName('tlf');
 
-                var cIds = contacts.getElementsByClassName('id');
+                var cIds = contacts.getElementsByTagName('id');
                 var cNames = contacts.getElementsByTagName('name');
                 var cTlfs = contacts.getElementsByTagName('tlf');
 
-                for (var i = 0, j = 0; i < names.length && j < cNames.length; /*Empty*/) {
+                for (var i = 0, j = 0; i < names.length || j < cNames.length; /*Empty*/) {
 
                     var contactList = document.createElement('ul');
 
                     var phoneContact;
 
-                    if (i === names.length || j !== cNames.length && cIds[j] < ids[i]) {
+                    if (i === names.length || j !== cNames.length && cIds[j].firstChild.textContent < ids[i].firstChild.textContent) {
                         phoneContact = true;
                         var ids_ = cIds;
                         var names_ = cNames;
@@ -527,9 +527,9 @@ function handleResponse(req, reqVerb, _id) {
                         j++;
                     } else {
                         phoneContact = false;
-                        var ids_ = Ids;
-                        var names_ = Names;
-                        var tlfs_ = Tlfs;
+                        var ids_ = ids;
+                        var names_ = names;
+                        var tlfs_ = tlfs;
                         var k = i;
                         i++;
                     }
