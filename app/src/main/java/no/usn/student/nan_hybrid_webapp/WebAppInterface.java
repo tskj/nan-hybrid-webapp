@@ -1,6 +1,7 @@
 package no.usn.student.nan_hybrid_webapp;
 
 import android.content.Context;
+import android.app.Activity;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import android.view.Gravity;
@@ -9,6 +10,10 @@ import android.text.Html;
 import android.database.Cursor;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+
+import android.support.v4.content.ContextCompat;
+import android.Manifest;
+import android.content.pm.PackageManager;
 
 public class WebAppInterface {
 
@@ -21,6 +26,12 @@ public class WebAppInterface {
     @JavascriptInterface
     public String listAllContacts() {
         String xml = "<contacts>";
+
+
+        if (ContextCompat.checkSelfPermission(_context, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            toastMessage("Manglar naudsynte rettar for å lese kontaktliste");
+            return xml + "</contacts>";
+        }
 
         Cursor k = _context.getContentResolver().query(Contacts.CONTENT_URI, null, null, null, Contacts._ID);
         if (k.getCount() > 0) {
