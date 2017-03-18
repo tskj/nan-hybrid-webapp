@@ -737,6 +737,11 @@ body {
         height: 60px;
     }
 
+    .results li div {
+        overflow: scroll;
+        font-size: 18px;
+    }
+
     .results div {
         height: 60px;
         font-size: 20px;
@@ -745,10 +750,10 @@ body {
     }
 
     .results > .tr_odd_mobile div {
-        background-color: #fafaff;
+        background-color: #f0faff;
     }
 
     .results > .tr_even_mobile {
-        background-color: #f2f2fa;
+        background-color: #e0f2fa;
     }
 }
