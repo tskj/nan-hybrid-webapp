@@ -468,8 +468,6 @@ function handleResponse(req, reqVerb, _id) {
             }
             if (req.status === 200 && reqVerb === 'GET') {
 
-                document.body.style.marginBottom = '200px';
-
                 var xml      = (new DOMParser()).parseFromString(req.responseText, 'application/xml');
                 var contacts = (new DOMParser()).parseFromString(Android.listAllContacts(), 'application/xml');
 
@@ -479,7 +477,7 @@ function handleResponse(req, reqVerb, _id) {
                 results.id = resultsID
                 nrOfResults++;
 
-                var listDiv = function(name, grey, lineBreakable) {
+                var listDiv = function(name, grey, lineBreakable, proportion) {
                     var div = document.createElement('div');
                     div.textContent = name
                     if (grey) {
@@ -490,15 +488,16 @@ function handleResponse(req, reqVerb, _id) {
                     }
                     var li = document.createElement('li');
                     li.appendChild(div);
+                    li.style.width = proportion;
                     return li;
                 }
 
                 var header = document.createElement('ul');
                 header.className = 'th';
 
-                header.appendChild(listDiv('ID'));
-                header.appendChild(listDiv('Namn'));
-                header.appendChild(listDiv('Telefon'));
+                header.appendChild(listDiv('ID', false, false, '20%'));
+                header.appendChild(listDiv('Namn', false, false, '40%'));
+                header.appendChild(listDiv('Telefon', false, false, '40%'));
 
                 results.appendChild(header);
 
@@ -550,9 +549,9 @@ function handleResponse(req, reqVerb, _id) {
                     var tlf_grey = (tlf) ? false : true;
                     tlf = (tlf) ? tlf.textContent : '<null>';
 
-                    contactList.appendChild(listDiv(id, id_grey, false));
-                    contactList.appendChild(listDiv(name, name_grey, false));
-                    contactList.appendChild(listDiv(tlf, tlf_grey, phoneContact));
+                    contactList.appendChild(listDiv(id, id_grey, false, '20%'));
+                    contactList.appendChild(listDiv(name, name_grey, false, '40%'));
+                    contactList.appendChild(listDiv(tlf, tlf_grey, phoneContact, '40%'));
 
                     results.appendChild(contactList);
 
