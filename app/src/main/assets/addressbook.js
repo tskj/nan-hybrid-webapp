@@ -540,6 +540,9 @@ function handleResponse(req, reqVerb, _id) {
                     var id = ids_[k].firstChild;
                     var id_grey = (id) ? false : true;
                     id = (id) ? id.textContent : '<null>';
+                    if (_id !== '' && _id !== id) {
+                        continue;
+                    }
 
                     var name = names_[k].firstChild;
                     var name_grey = (name) ? false : true;
