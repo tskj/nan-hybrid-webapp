@@ -413,9 +413,9 @@ function sendRequest() {
         var nameNode = xml.createElement('name');
         var tlfNode = xml.createElement('tlf');
 
-        idNode.appendChild(xml.createTextNode(inputForm[0].children[0].value));
-        nameNode.appendChild(xml.createTextNode(inputForm[1].children[0].value));
-        tlfNode.appendChild(xml.createTextNode(inputForm[2].children[0].value));
+        idNode.appendChild(xml.createTextNode(inputForm[0].children[1].value));
+        nameNode.appendChild(xml.createTextNode(inputForm[1].children[1].value));
+        tlfNode.appendChild(xml.createTextNode(inputForm[2].children[1].value));
 
         contactNode.appendChild(idNode);
         contactNode.appendChild(nameNode);
