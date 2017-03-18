@@ -17,6 +17,8 @@ public class Addressbook extends Activity {
         setContentView(view);
 
         view.getSettings().setJavaScriptEnabled(true);
+        view.getSettings().setAllowFileAccessFromFileURLs(true);
+        view.getSettings().setAllowUniversalAccessFromFileURLs(true);
         view.getSettings().setBuiltInZoomControls(false);
         view.addJavascriptInterface(new WebAppInterface(this), "Android");
         view.loadUrl("file:///android_asset/index.html");

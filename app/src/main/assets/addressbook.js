@@ -14,7 +14,7 @@ const panes = [   'get_pane'
               ,   'delete_pane'
               ]   ;
 
-const apiResourcePath = '/api/addressbook/';
+const apiResourcePath = 'http://172.20.10.4/api/addressbook/';
 
 function $(id) {
     return document.getElementById(id);
